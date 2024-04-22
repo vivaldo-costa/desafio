@@ -21,7 +21,7 @@ include_once "conexao.php";
           <th>Não Funcionais</th>
           <th>Número total</th>
         </tr>
-<form action="proc_edit_prod.php" method="POST">
+<form action="proc_edit.php" method="POST">
         <?php
         $query_designacao = "SELECT cod_designacao, nome_designacao, funcional_designacao, Nfuncional_designacao, total_designacao
              FROM tb_designacao";
