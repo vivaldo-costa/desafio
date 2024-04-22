@@ -21,7 +21,7 @@ include_once "conexao.php";
           <th>Não Funcionais</th>
           <th>Número total</th>
         </tr>
-
+<form action="proc_edit_prod.php" method="POST">
         <?php
         $query_designacao = "SELECT cod_designacao, nome_designacao, funcional_designacao, Nfuncional_designacao, total_designacao
              FROM tb_designacao";
@@ -33,33 +33,48 @@ include_once "conexao.php";
             if ($cod_designacao <= 1) {
                 echo" <tr>";
                 echo"<td> $nome_designacao </td>";
-                echo"<td> <input type='number'  name='$cod_designacao' min='0' value='$funcional_designacao' id='txt' onfocus='calcular()' disabled> </td>";
-                echo"<td> <input type='number'  name='$cod_designacao' min='0' value='$Nfuncional_designacao' id='txt' onblur='calcular()' disabled> </td>";
-                echo"<td> <input type='number'  name='$cod_designacao' min='0' value='$total_designacao' id='result'  > </td>";
+                echo"<td> <input type='number'  name='desigenacao$cod_designacao' min='0' value='$funcional_designacao' id='txt' onfocus='calcular()' disabled> </td>";
+                echo"<td> <input type='number'  name='desigenacao$cod_designacao' min='0' value='$Nfuncional_designacao' id='txt' onblur='calcular()' disabled> </td>";
+                echo"<td> <input type='number'  name='desigenacao$cod_designacao' min='0' value='$total_designacao' id='result'  > </td>";
                 echo" </tr>";
                
             } else {
                 
                 echo" <tr>";
                 echo"<td> $nome_designacao </td>";
-                echo"<td> <input type='number'  name='$cod_designacao' min='0' value='$funcional_designacao' id='txt1' onfocus='calcular1()'> </td>";
-                echo"<td> <input type='number'  name='$cod_designacao' min='0' value='$Nfuncional_designacao' id='txt1' onblur='calcular1()'> </td>";
-                echo"<td> <input type='number'  name='$cod_designacao' min='0' value='$total_designacao' id='result1'  disabled> </td>";
+                echo"<td> <input type='number'  name='desigenacao$cod_designacao' min='0' value='$funcional_designacao' id='txt1' onfocus='calcular1()'> </td>";
+                echo"<td> <input type='number'  name='desigenacao$cod_designacao' min='0' value='$Nfuncional_designacao' id='txt1' onblur='calcular1()'> </td>";
+                echo"<td> <input type='number'  name='desigenacao$cod_designacao' min='0' value='$total_designacao' id='result1'  disabled> </td>";
                 echo" </tr>";
             }
 
             }
-            ?>         
+            ?>
+            <tr>
+            <td> 
+            </td> 
+            <td> 
+            </td>
+            <td> 
+            </td>
+
+                <td> 
+            <button type="submit" style="background: #2B6AB5; color: #fff; padding: 40px 70px border-radius: 4px; font-size: 19px; font-weight: 300px;" >Actualizar</button>
+
+                </td>
+        </tr>
+
+
+</form>
       </table>
 
     <?php
-
     if(isset($_SESSION['msg'])){
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
-    }
-        
+    }     
     ?>
+
     <script>
     function calcular1(){
     var valor1 = parseInt(document.getElementById('txt1').value, 10);
